@@ -27,6 +27,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public Employee getEmployeeById(int employeeId) {
+        System.out.println("AJ: Emp ID: " + employeeId);
         return entityManager.find(Employee.class, employeeId);
     }
 }

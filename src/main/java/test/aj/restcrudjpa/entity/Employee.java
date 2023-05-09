@@ -3,7 +3,7 @@ package test.aj.restcrudjpa.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Employee")
+@Table(name="employee")
 public class Employee {
 
     @Id
