@@ -5,12 +5,10 @@ import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import test.aj.restcrudjpa.entity.Employee;
-
 import java.util.List;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
-
     private EntityManager entityManager;
 
     @Autowired
@@ -27,7 +25,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public Employee getEmployeeById(int employeeId) {
-        System.out.println("AJ: Emp ID: " + employeeId);
         return entityManager.find(Employee.class, employeeId);
     }
 }

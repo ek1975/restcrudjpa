@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 @Transactional
 public class EmpSerImpl implements EmpServ {
-
     private EmployeeDAO employeeDAO;
 
     @Autowired
