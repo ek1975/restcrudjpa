@@ -7,4 +7,8 @@ public interface EmpServ {
     List<Employee> listAllEmployees();
 
     Employee getEmployeeById(int employeeId);
+
+    Employee save(Employee e); //Create/Update
+
+    void deleteById(int id);
 }

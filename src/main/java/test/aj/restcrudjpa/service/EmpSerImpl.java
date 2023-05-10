@@ -27,4 +27,16 @@ public class EmpSerImpl implements EmpServ {
     public Employee getEmployeeById(int employeeId) {
         return employeeDAO.getEmployeeById(employeeId);
     }
+
+    @Transactional
+    @Override
+    public Employee save(Employee e) {
+        return employeeDAO.save(e);
+    }
+
+    @Transactional
+    @Override
+    public void deleteById(int id) {
+        employeeDAO.deleteById(id);
+    }
 }
