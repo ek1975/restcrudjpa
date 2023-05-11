@@ -10,5 +10,5 @@ public interface EmpServ {
 
     Employee save(Employee e); //Create/Update
 
-    void deleteById(int id);
+    void delEmpById(int id);
 }

@@ -1,10 +1,7 @@
 package test.aj.restcrudjpa.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import test.aj.restcrudjpa.dao.EmployeeDAO;
 import test.aj.restcrudjpa.entity.Employee;
 import test.aj.restcrudjpa.service.EmpServ;
@@ -29,5 +26,17 @@ public class EmployeeRestController {
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployeeById (@PathVariable int employeeId) {
         return empServ.getEmployeeById(employeeId);
+    }
+
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee e) {
+        e.setId(0);
+        Employee ne = empServ.save(e);
+        return ne;
+    }
+
+    @DeleteMapping("/employees/{employeeId}")
+    public void delEmpById (@PathVariable int id) {
+        empServ.delEmpById(id);
     }
 }

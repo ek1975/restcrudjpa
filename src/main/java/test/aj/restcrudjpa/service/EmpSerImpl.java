@@ -36,7 +36,7 @@ public class EmpSerImpl implements EmpServ {
 
     @Transactional
     @Override
-    public void deleteById(int id) {
-        employeeDAO.deleteById(id);
+    public void delEmpById(int id) {
+        employeeDAO.delEmpById(id);
     }
 }
