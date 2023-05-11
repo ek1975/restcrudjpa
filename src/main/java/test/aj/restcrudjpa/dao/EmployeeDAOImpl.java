@@ -1,3 +1,4 @@
+//JPA API is replaced by SDJPA
 package test.aj.restcrudjpa.dao;
 
 import jakarta.persistence.EntityManager;
@@ -42,6 +43,4 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Employee e = entityManager.find(Employee.class, id);
         entityManager.remove(e);
     }
-
-
 }

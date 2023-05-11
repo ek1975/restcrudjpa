@@ -1,3 +1,4 @@
+//JPA API is replaced by SDJPA
 package test.aj.restcrudjpa.dao;
 
 import test.aj.restcrudjpa.entity.Employee;

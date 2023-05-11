@@ -1,42 +1,52 @@
 package test.aj.restcrudjpa.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import test.aj.restcrudjpa.dao.EmployeeDAO;
+import test.aj.restcrudjpa.dao.EmpJpaRepo;
 import test.aj.restcrudjpa.entity.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
 public class EmpSerImpl implements EmpServ {
-    private EmployeeDAO employeeDAO;
 
-    @Autowired
-    public EmpSerImpl(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    private EmpJpaRepo eJR;
+
+    public EmpSerImpl(EmpJpaRepo eJR) {
+        this.eJR = eJR;
     }
 
-    @Override
-    public List<Employee> listAllEmployees() {
-        return employeeDAO.listAllEmployees();
-    }
+    /*  Being commented because it is being replaced by SDJPA
+        private EmployeeDAO employeeDAO;
+
+        @Autowired
+        public EmpSerImpl(EmployeeDAO employeeDAO) {
+            this.employeeDAO = employeeDAO;
+        }
+*/
+        @Override
+        public List<Employee> listAllEmployees() {
+            return eJR.findAll();
+//            return employeeDAO.listAllEmployees();
+        }
 
     @Override
-    public Employee getEmployeeById(int employeeId) {
-        return employeeDAO.getEmployeeById(employeeId);
+    public Optional<Employee> getEmployeeById(int id) {
+        return eJR.findById(id);
+//        return employeeDAO.getEmployeeById(employeeId);
     }
 
     @Transactional
     @Override
     public Employee save(Employee e) {
-        return employeeDAO.save(e);
+        return eJR.save(e);
     }
 
     @Transactional
     @Override
     public void delEmpById(int id) {
-        employeeDAO.delEmpById(id);
+        eJR.deleteById(id);
     }
 }
